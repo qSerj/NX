@@ -4,6 +4,8 @@
 
 This repository develops short Siemens NX lessons for an 11-year-old learner using **NX 2212 with classic Sketch**. It contains documentation, a lesson template, and 24 lesson drafts; finished lessons and NX models are not yet available.
 
+NX используем с включённым русским языком интерфейса. В инструкциях и проверках ориентируемся на русские названия команд, меню и диалогов NX 2212; непроверенные названия явно помечаем.
+
 - `README.md`: project overview and current stage.
 - `docs/`: original brief, requirements, and the 24-topic course plan. Preserve `docs/project-brief-v1.0.md` as the unchanged source brief.
 - `lessons/lesson-template.md`: starting point for each lesson.
