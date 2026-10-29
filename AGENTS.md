@@ -1,41 +1,27 @@
-# Repository Guidelines
+# Правила работы с проектом
 
-## Project Structure & Module Organization
+Этот файл — инструкция агенту, а не описание текущего состояния проекта. Не добавляй сюда планы, статусы и пересказы обсуждений.
 
-This repository develops short Siemens NX lessons for an 11-year-old learner using **NX 2212 with classic Sketch**. It contains documentation, a lesson template, and 24 lesson drafts; finished lessons and NX models are not yet available.
+## Где искать информацию
 
-NX используем с включённым русским языком интерфейса. В инструкциях и проверках ориентируемся на русские названия команд, меню и диалогов NX 2212; непроверенные названия явно помечаем.
+- Начинай с поручения. Читай только нужные для него файлы, не весь проект подряд.
+- Для конкретного урока основной источник — `lessons/NN-.../lesson.md` и материалы в той же папке. Готовность сверяй с фактическими файлами и результатами проверок.
+- `docs/requirements.md` — методические требования; `docs/course-plan.md` — рабочий маршрут курса; `lessons/lesson-template.md` — образец, а не повод переписывать существующие уроки.
+- `README.md`, `docs/README.md`, `lessons/README.md` — навигация и сводки, которые могут отставать. `docs/project-brief-v1.0.md`, история Git и возможная внешняя память полезны для обращения к прошлому, но сами по себе не устанавливают текущие решения.
+- При расхождениях проверяй факты по материалам, а не по сводкам. Если действующие решения противоречат друг другу, не угадывай — обозначь противоречие.
 
-- `README.md`: project overview and current stage.
-- `docs/`: original brief, requirements, and the 24-topic course plan. Preserve `docs/project-brief-v1.0.md` as the unchanged source brief.
-- `lessons/lesson-template.md`: starting point for each lesson.
-- `lessons/NN-short-name/lesson.md`: lesson drafts, with supporting `drawings/`, `images/`, and `models/` directories as needed. `lessons/README.md` links to every lesson.
+## Как вносить изменения
 
-Use course numbers, not pilot-development order. Fill existing drafts one at a time; create asset directories when materials exist. The initial pilots are lessons **01, 02, and 06**.
+- Меняй только необходимое для поручения. Не заводи дополнительные реестры, отчёты, журналы и копии документации без запроса.
+- Содержание урока, его материалы, готовность и результаты проверок фиксируй в его `lesson.md`. Не синхронизируй ради галочки сводные статусы в других файлах. План курса меняй, когда принято решение изменить маршрут.
+- Различай подтверждённое решение, предложение и гипотезу. Не называй проверенными команды NX, модели, размеры и время занятия без подтверждения; указывай, что именно проверено и кем, если известно.
+- Береги исходные материалы; не изменяй `docs/project-brief-v1.0.md` и нативные файлы NX без необходимости.
 
-## Build, Test, and Development Commands
+## Входящие идеи
 
-There is no build system, dependency installation, development server, or automated test suite. Work directly in Markdown and validate native models in NX.
+- `INBOX.md` в корне — одно место для ещё не разобранных идей, вопросов и проблем. Создай его при первой записи.
+- Если в ходе работы прозвучала конкретная мысль, которую важно не потерять, кратко запиши её с датой и указанием урока, если он известен. Не конспектируй разговор и не превращай идею в решение автоматически.
+- Входящие — не задачи и не действующие требования. Читай их при возвращении к идеям, мозговом штурме или планировании связанной темы, но не при каждой обычной правке.
+- При разборе предложи, что сделать с записью; удаляй её или переноси в рабочие материалы только по согласованию. Отдельный архив не создавай.
 
-- `Get-Content docs/requirements.md`: review lesson acceptance criteria before editing.
-- `Get-Content lessons/01-free-sketch/lesson.md`: review the first draft before filling its sections. Do not overwrite existing lessons with the template.
-- `git diff --check`: check changes for whitespace errors.
-- `git diff --stat` and `git diff`: review scope and content before committing.
-
-## Writing Style & Naming Conventions
-
-Write learner-facing materials and project documentation in Russian. Follow existing Markdown: descriptive headings, blank lines between blocks, hyphenated bullets, numbered steps, and relative links. Use backticks for paths and command names.
-
-Use two-digit lesson numbers and lowercase, hyphen-separated directory names. Preserve the template sections and explicitly mark missing assets or unverified behavior. No formatter or linter is configured.
-
-## Testing Guidelines
-
-Check links, dimensions, asset references, and consistency with the requirements. Verify command names and model behavior in NX 2212 with classic Sketch; opening a document does not validate an NX model.
-
-Record documentation checks, model checks, and learner trials separately in each lesson. Measure time to the visible result and total duration: target a result within ten minutes and a complete lesson within fifteen. Keep one new idea per lesson. No automated coverage threshold applies.
-
-## Commit & Pull Request Guidelines
-
-The single existing commit uses a short Russian action phrase: `Создать основу учебного проекта Siemens NX`. Follow that style with focused, descriptive commits.
-
-In pull requests, describe affected lessons, the learning outcome, completed checks, and outstanding materials. Link related issues when applicable; include screenshots for geometry or visual changes. Never describe untested models as ready for teaching.
+По завершении кратко сообщай, что изменено и что осталось непроверенным.
